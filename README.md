@@ -1,11 +1,11 @@
 # Wizdomiz
 クイズアプリ「**Wizdomiz**」開発用のリポジトリ
 
-## Wizdomizeとは？
-Wizdomizeとは、「**Wizdom(知恵)** + **Quiz(クイズ)**」の造語です。  
+## Wizdomizとは？
+Wizdomizとは、「**Wizdom(知恵)** + **Quiz(クイズ)**」の造語です。  
 Quizを通して知恵がつけられるようなアプリを目指します。
 
-## Wizdomizeで出来ること(予定)
+## Wizdomizで出来ること(予定)
 * Quizeを作れること
 * Quizeを共有出来ること
 * Quizeに回答出来ること
