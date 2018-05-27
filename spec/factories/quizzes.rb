@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :quiz do
-    title "MyString"
-    body "MyText"
-    explanation "MyText"
+    title 'タイトル'
+    body '本文'
+    explanation '解説'
   end
 end
