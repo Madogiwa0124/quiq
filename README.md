@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/Madogiwa0124/wisdomiz.svg?style=svg)](https://circleci.com/gh/Madogiwa0124/wisdomiz)
+
 # Wizdomiz
 クイズアプリ「**Wizdomiz**」開発用のリポジトリ
 
