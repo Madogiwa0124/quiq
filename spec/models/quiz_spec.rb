@@ -1,5 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe Quiz, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "validation" do
+    let(:quiz) { FactoryBot.build(:quiz) }
+    let(:correct_choice)   { FactoryBot.build(:choice, quiz: quiz, correct: true) }
+    let(:incorrect_choice) { FactoryBot.build(:choice, quiz: quiz) }
+
+    it '正しい値が設定されたときは正常な状態となること' do
+      quiz.choices = [correct_choice, incorrect_choice]
+      expect(quiz).to be_valid
+    end
+
+    it '正解の無いQuizはエラーとなること' do
+      quiz.choices = [incorrect_choice, incorrect_choice]
+      expect(quiz).not_to be_valid
+    end
+  end
 end

@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :choice do
-    quiz nil
-    sentence "MyString"
+    sentence '選択肢'
     correct false
+    association :quiz
   end
 end
