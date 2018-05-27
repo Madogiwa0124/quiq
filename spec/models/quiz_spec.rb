@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Quiz, type: :model do
-  describe "validation" do
+  describe 'validation' do
     let(:quiz) { FactoryBot.build(:quiz) }
     let(:correct_choice)   { FactoryBot.build(:choice, quiz: quiz, correct: true) }
     let(:incorrect_choice) { FactoryBot.build(:choice, quiz: quiz) }
