@@ -1,0 +1,24 @@
+%h1 新しいQuiz
+= form_for @quiz do |f|
+  - if @quiz.errors.any?
+    %div.alert.alert-danger{ role: 'alert' }
+      %ul
+        - @quiz.errors.full_messages.each do |message|
+          %li= message
+  .form-group
+    = f.label :title
+    = f.text_field :title
+  .form-group  
+    = f.label :body  
+    = f.text_area :body  
+  .form-group
+    = f.label :explanation
+    = f.text_area :explanation
+  .form-group
+    = label_tag :choice
+    = text_field_tag 'quiz[choices][][sentence]'
+    = check_box_tag  'quiz[choices][][correct]'
+    = label_tag :choice
+    = text_field_tag 'quiz[choices][][sentence]'
+    = check_box_tag  'quiz[choices][][correct]'
+  = f.submit '作成'
