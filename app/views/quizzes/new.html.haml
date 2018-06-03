@@ -1,23 +1,2 @@
 %h1 新しいQuiz
-= form_for @quiz do |f|
-  - if @quiz.errors.any?
-    %div.alert.alert-danger{ role: 'alert' }
-      %ul
-        - @quiz.errors.full_messages.each do |message|
-          %li= message
-  .form-group
-    = f.label :title
-    = f.text_field :title
-  .form-group  
-    = f.label :body  
-    = f.text_area :body  
-  .form-group
-    = f.label :explanation
-    = f.text_area :explanation
-  .form-group.choices_area
-    %h3 選択肢
-    = f.fields_for :choices do |choice|
-      = choice.text_field :sentence
-      = choice.check_box :correct
-      %br
-  = f.submit '作成'
+= render 'form'

@@ -1,0 +1,19 @@
+= form_for @quiz do |f|
+  - if @quiz.errors.any?
+    = render 'layouts/error_form', resource: @quiz
+  .form-group
+    = f.label :title, 'タイトル'
+    %br
+    = f.text_field :title
+  .form-group  
+    = f.label :body, '本文'
+    %br
+    = f.text_area :body  
+  .form-group
+    = f.label :explanation, '解説'
+    %br
+    = f.text_area :explanation
+  .form-group.choices_area
+    %h3 選択肢
+    = render 'choice_form', form_object: f
+  = f.submit '保存'

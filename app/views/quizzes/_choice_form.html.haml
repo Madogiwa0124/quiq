@@ -1,0 +1,5 @@
+%ul
+  = form_object.fields_for :choices do |choice|
+    %li
+      = choice.text_field :sentence
+      = choice.check_box :correct
