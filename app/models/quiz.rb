@@ -1,5 +1,5 @@
 class Quiz < ApplicationRecord
-  has_many :choices
+  has_many :choices, dependent: :destroy
   accepts_nested_attributes_for :choices
 
   validates :title, presence: true
