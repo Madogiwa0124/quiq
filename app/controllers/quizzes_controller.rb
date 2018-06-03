@@ -9,7 +9,7 @@ class QuizzesController < ApplicationController
 
   def create
     @quiz = Quiz.new(quiz_params)
-    prepare_choice
+    choices_params[:choices].each { |choice| @quiz.choices.new(choice) }
     if @quiz.save
       redirect_to quizzes_path
     else
@@ -18,10 +18,6 @@ class QuizzesController < ApplicationController
   end
 
   private
-
-  def prepare_choice
-    choices_params[:choices].each { |choice| @quiz.choices.new(choice) }
-  end
 
   def quiz_params
     params.require(:quiz).permit(:title, :body, :explanation)
