@@ -19,10 +19,22 @@ class QuizzesController < ApplicationController
     end
   end
 
+  def edit
+    @quiz = Quiz.find(params[:id])
+  end
+
+  def update
+    @quiz = Quiz.find(params[:id])
+    if @quiz.update(quiz_params)
+      redirect_to quizzes_path
+    else
+      render :edit
+    end
+  end
 
   private
 
   def quiz_params
-    params.require(:quiz).permit(:title, :body, :explanation, choices_attributes: [:sentence, :correct])
+    params.require(:quiz).permit(:title, :body, :explanation, choices_attributes: [:id, :sentence, :correct])
   end
 end
