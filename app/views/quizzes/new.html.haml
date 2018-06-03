@@ -14,11 +14,10 @@
   .form-group
     = f.label :explanation
     = f.text_area :explanation
-  .form-group
-    = label_tag :choice
-    = text_field_tag 'quiz[choices][][sentence]'
-    = check_box_tag  'quiz[choices][][correct]'
-    = label_tag :choice
-    = text_field_tag 'quiz[choices][][sentence]'
-    = check_box_tag  'quiz[choices][][correct]'
+  .form-group.choices_area
+    %h3 選択肢
+    = f.fields_for :choices do |choice|
+      = choice.text_field :sentence
+      = choice.check_box :correct
+      %br
   = f.submit '作成'

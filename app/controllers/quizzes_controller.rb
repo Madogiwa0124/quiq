@@ -1,15 +1,17 @@
 class QuizzesController < ApplicationController
+  CHOICES_COUNT = 4.freeze
+
   def index
     @quizzes = Quiz.includes(:choices)
   end
 
   def new
     @quiz = Quiz.new
+    CHOICES_COUNT.times { @quiz.choices.new }
   end
 
   def create
     @quiz = Quiz.new(quiz_params)
-    choices_params[:choices].each { |choice| @quiz.choices.new(choice) }
     if @quiz.save
       redirect_to quizzes_path
     else
@@ -17,13 +19,10 @@ class QuizzesController < ApplicationController
     end
   end
 
+
   private
 
   def quiz_params
-    params.require(:quiz).permit(:title, :body, :explanation)
-  end
-
-  def choices_params
-    params.require(:quiz).permit(choices: [:sentence, :correct])
+    params.require(:quiz).permit(:title, :body, :explanation, choices_attributes: [:sentence, :correct])
   end
 end

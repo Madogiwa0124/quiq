@@ -1,5 +1,7 @@
 class Quiz < ApplicationRecord
   has_many :choices
+  accepts_nested_attributes_for :choices
+
   validates :title, presence: true
   validate :require_correct_choice
 
