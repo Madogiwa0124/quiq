@@ -3,10 +3,10 @@ class Quiz < ApplicationRecord
   accepts_nested_attributes_for :choices
 
   validates :title, presence: true
-  validate :require_choice
+  validate :require_multi_choice
   validate :require_only_correct_choice, unless: -> { valid_choices.length < 2 }
 
-  def require_choice
+  def require_multi_choice
     errors.add(:choices, '選択肢は、2個以上指定してください') if valid_choices.length < 2
   end
 

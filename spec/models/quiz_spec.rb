@@ -11,8 +11,15 @@ RSpec.describe Quiz, type: :model do
       expect(quiz).to be_valid
     end
 
-    it '正解の無いQuizはエラーとなること' do
+    it '選択肢が複数無い場合はエラーとなること' do
+      quiz.choices = [correct_choice]
+      expect(quiz).not_to be_valid
+    end
+
+    it '正解が1つ以外の場合はエラーとなること' do
       quiz.choices = [incorrect_choice, incorrect_choice]
+      expect(quiz).not_to be_valid
+      quiz.choices = [correct_choice, correct_choice]
       expect(quiz).not_to be_valid
     end
   end
