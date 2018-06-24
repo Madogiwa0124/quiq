@@ -5,6 +5,10 @@ class QuizzesController < ApplicationController
     @quizzes = Quiz.includes(:choices)
   end
 
+  def show
+    @quiz = Quiz.find(params[:id])
+  end
+
   def new
     @quiz = Quiz.new
     build_choices

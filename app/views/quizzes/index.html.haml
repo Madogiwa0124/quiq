@@ -12,5 +12,6 @@
         %td= quiz.title
         %td= quiz.body
         %td
+          = link_to '詳細', quiz_path(quiz)
           = link_to '編集', edit_quiz_path(quiz)
           = link_to '削除', quiz_path(quiz), method: :delete
