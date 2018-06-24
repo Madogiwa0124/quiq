@@ -1,0 +1,7 @@
+%h1= @quiz.title
+.quiz_area
+  %p= @quiz.body
+.choices_area
+  - @quiz.choices.each do |choice|
+    %p
+      = link_to choice.sentence, answer_choices_path(answer_choices: { quiz_id: @quiz.id, choice_id: choice.id }), method: :post
