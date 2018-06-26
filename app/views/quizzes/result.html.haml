@@ -1,0 +1,11 @@
+- 
+%h1= @quiz.title
+.quiz_area
+  %p= @user_choiced.correct ? '正解' : '不正解'
+  %p= @quiz.explanation
+.choices_area
+  - @quiz.choices.each do |choice|
+    - if choice == @user_choiced
+      %p= "#{choice.sentence} <- あなたが選んだ選択肢"
+    - else
+      %p= choice.sentence
