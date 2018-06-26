@@ -9,6 +9,15 @@ class QuizzesController < ApplicationController
     @quiz = Quiz.find(params[:id])
   end
 
+  def result
+    @quiz = Quiz.find(params[:id])
+    if params[:answer_choice_id].present?
+      @user_choiced = AnswerChoice.find(params[:answer_choice_id]).choice
+    else
+      redirect_to @quiz
+    end
+  end
+
   def new
     @quiz = Quiz.new
     build_choices
