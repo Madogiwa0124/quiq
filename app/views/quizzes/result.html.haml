@@ -20,4 +20,4 @@
     - @quiz.choices.each do |choice|
       %li
         %span= choice.sentence
-        %span= "#{choice.answer_choice&.answer_count ? choice.answer_choice&.answer_count : 0}人が回答"
+        %span= "#{choice.answers_count}人が回答"
