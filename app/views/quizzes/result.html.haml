@@ -1,0 +1,23 @@
+- 
+%h1= @quiz.title
+.quiz_area
+  %p= @user_choiced.correct ? '正解' : '不正解'
+.quiz_result
+  解説
+  %p= @quiz.explanation
+.quiz_body
+  本文
+  %p= @quiz.body
+%ul
+  - @quiz.choices.each do |choice|
+    - if choice == @user_choiced
+      %li= "#{choice.sentence} <- あなたが選んだ選択肢"
+    - else
+      %li= choice.sentence
+.other_choice_area
+  他の人の回答
+  %ul
+    - @quiz.choices.each do |choice|
+      %li
+        %span= choice.sentence
+        %span= "#{choice.answers_count}人が回答"
