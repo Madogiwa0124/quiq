@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_27_114953) do
+ActiveRecord::Schema.define(version: 2018_06_24_140257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answer_choices", force: :cascade do |t|
+    t.bigint "quiz_id", null: false
+    t.bigint "choice_id", null: false
+    t.integer "answer_count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["choice_id"], name: "index_answer_choices_on_choice_id"
+    t.index ["quiz_id"], name: "index_answer_choices_on_quiz_id"
+  end
 
   create_table "choices", force: :cascade do |t|
     t.bigint "quiz_id", null: false
@@ -32,5 +42,7 @@ ActiveRecord::Schema.define(version: 2018_05_27_114953) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "answer_choices", "choices"
+  add_foreign_key "answer_choices", "quizzes"
   add_foreign_key "choices", "quizzes"
 end
