@@ -10,7 +10,7 @@ class QuizzesController < ApplicationController
   end
 
   def result
-    @quiz = Quiz.find(params[:id])
+    @quiz = Quiz.includes(choices: :answer_choice).find(params[:id])
     if params[:answer_choice_id].present?
       @user_choiced = AnswerChoice.find(params[:answer_choice_id]).choice
     else
