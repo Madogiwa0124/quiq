@@ -1,17 +1,20 @@
-%h1 Quiz一覧
-= link_to '新規', new_quiz_path
-%table{border: '1'}
-  %thead
-    %tr
-      %th タイトル
-      %th 本文
-      %th アクション
-  %tbody
+.container#quiz-index
+  %h1 Quiz List
+  .btn-area.right
+    = link_to 'Quizを投稿してみる', new_quiz_path, class: 'btn btn-primary'
+  .row
     - @quizzes.each do |quiz|
-      %tr
-        %td= quiz.title
-        %td= quiz.body
-        %td
-          = link_to '詳細', quiz_path(quiz)
-          = link_to '編集', edit_quiz_path(quiz)
-          = link_to '削除', quiz_path(quiz), method: :delete
+      .col-lg-4.card-space
+        .card
+          .card-header= quiz.title
+          = image_tag('sample_image.png', class: 'card-img-top', style: 'max-width: 100%')
+          .card-body.center
+            = link_to quiz_path(quiz), class: 'card-link' do
+              %i.fas.fa-comment
+              回答する
+            = link_to edit_quiz_path(quiz), class: 'card-link' do
+              %i.fas.fa-edit
+              編集する
+            = link_to quiz_path(quiz), method: :delete, class: 'card-link' do
+              %i.fas.fa-trash-alt
+              削除する
