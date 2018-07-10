@@ -4,16 +4,15 @@
   .form-group
     = f.label :title, 'タイトル'
     %br
-    = f.text_field :title
+    = f.text_field :title, class: 'form-control'
   .form-group  
     = f.label :body, '本文'
     %br
-    = f.text_area :body  
+    = f.text_area :body, class: 'form-control'
   .form-group
     = f.label :explanation, '解説'
     %br
-    = f.text_area :explanation
+    = f.text_area :explanation, class: 'form-control'
   .form-group.choices_area
-    %h3 選択肢
     = render 'choice_form', form_object: f
-  = f.submit '保存'
+  = f.submit '保存', class: 'btn btn-primary'
