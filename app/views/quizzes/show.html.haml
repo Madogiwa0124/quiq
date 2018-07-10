@@ -1,7 +1,11 @@
-%h1= @quiz.title
-.quiz_area
-  %p= @quiz.body
-.choices_area
-  - @quiz.choices.each do |choice|
-    %p
-      = link_to choice.sentence, answer_choices_path(answer_choices: { quiz_id: @quiz.id, choice_id: choice.id }), method: :post
+.container
+  %h1 Quizに回答する
+  .card
+    .card-header= @quiz.title
+    .card-body= @quiz.body
+  %br
+  %h5 選択肢
+  .choices_area
+    %ul.list-group
+    - @quiz.choices.each do |choice|
+      %li.list-group-item= link_to choice.sentence, answer_choices_path(answer_choices: { quiz_id: @quiz.id, choice_id: choice.id }), method: :post
