@@ -4,8 +4,9 @@
     .card-header= @quiz.title
     .card-body= @quiz.body
   %br
-  %h5 選択肢
-  .choices_area
-    %ul.list-group
-    - @quiz.choices.each do |choice|
-      %li.list-group-item= link_to choice.sentence, answer_choices_path(answer_choices: { quiz_id: @quiz.id, choice_id: choice.id }), method: :post
+  .card
+    .card-header 選択肢
+    %ul.list-group.list-group-flush
+      - @quiz.choices.each do |choice|
+        %li.list-group-item
+          = link_to choice.sentence, answer_choices_path(answer_choices: { quiz_id: @quiz.id, choice_id: choice.id }), method: :post
