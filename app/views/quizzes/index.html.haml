@@ -1,7 +1,5 @@
 .container#quiz-index
   %h1 Quiz List
-  .btn-area.right
-    = link_to 'Quizを投稿してみる', new_quiz_path, class: 'btn btn-primary'
   .row
     - @quizzes.each do |quiz|
       .col-lg-4.card-space
