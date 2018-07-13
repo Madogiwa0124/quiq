@@ -1,7 +1,6 @@
 .container
-  %h1 Quizに回答する
+  %h1= @quiz.title
   .card
-    .card-header= @quiz.title
     .card-body= @quiz.body
   %br
   .card
