@@ -23,4 +23,18 @@ RSpec.describe Quiz, type: :model do
       expect(quiz).not_to be_valid
     end
   end
+
+  describe '#correct_choice' do
+    let(:quiz) { FactoryBot.build(:quiz) }
+    let(:correct_choice) { FactoryBot.build(:choice, quiz: quiz, correct: true) }
+
+    before do
+      quiz.choices << correct_choice
+      quiz.choices << FactoryBot.build(:choice, quiz: quiz)
+    end
+
+    it '正解の選択肢が取得されること' do
+      expect(quiz.correct_choice).to eq correct_choice
+    end
+  end
 end

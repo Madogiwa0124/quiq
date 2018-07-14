@@ -12,7 +12,11 @@ class Quiz < ApplicationRecord
   end
 
   def require_only_correct_choice
-    errors.add(:choices, '正解の選択肢は、1つ指定してください') if currect_choices.length != 1
+    errors.add(:choices, '正解の選択肢は、1つ指定してください') if correct_choices.length != 1
+  end
+
+  def correct_choice
+    choices.select(&:correct).first
   end
 
   private
@@ -21,7 +25,7 @@ class Quiz < ApplicationRecord
     choices.select(&:valid?)
   end
 
-  def currect_choices
+  def correct_choices
     choices.select(&:correct)
   end
 end
