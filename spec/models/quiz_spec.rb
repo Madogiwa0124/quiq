@@ -26,7 +26,7 @@ RSpec.describe Quiz, type: :model do
 
   describe '#correct_choice' do
     let(:quiz) { FactoryBot.build(:quiz) }
-    let(:correct_choice)   { FactoryBot.build(:choice, quiz: quiz, correct: true) }
+    let(:correct_choice) { FactoryBot.build(:choice, quiz: quiz, correct: true) }
 
     before do
       quiz.choices << correct_choice
