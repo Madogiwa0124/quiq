@@ -5,7 +5,10 @@
       - if @user_choiced.correct
         %p.currect.text-danger.center ◯ 正解
       - else
-        %p.uncorrect.text-primary.center × 不正解
+        %p.text-primary.center 
+          %span.uncorrect × 不正解
+          %br
+          = "正解は、#{@quiz.correct_choice.sentence}でした。"
     .card
       .card-header 解説
       .card-body= @quiz.explanation
