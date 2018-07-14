@@ -1,5 +1,8 @@
-%ul
-  = form_object.fields_for :choices do |choice|
-    %li
-      = choice.text_field :sentence
-      = choice.check_box :correct
+%h6 選択肢
+%spen ※２つ以上の選択肢を入力して、正解にチェックを入れてください。
+= form_object.fields_for :choices do |choice|
+  .input-group.mb-3
+    .input-group-prepend
+      .input-group-text
+        = choice.check_box :correct
+    = choice.text_field :sentence, class: 'form-control'
