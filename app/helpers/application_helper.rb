@@ -12,7 +12,7 @@ module ApplicationHelper
       twitter_card[:description] = 'Quizを投稿して、すぐに共有、すぐに解答'
       twitter_card[:image] = 'https://raw.githubusercontent.com/Madogiwa0124/quiq/master/app/assets/images/top.png'
     end
-    twitter_card[:card] = 'summary'
+    twitter_card[:card] = 'summary_large_image'
     twitter_card[:site] = '@Madogiwa_Boy'
     twitter_card
   end 
