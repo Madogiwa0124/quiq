@@ -1,0 +1,10 @@
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
+  = link_to 'QuiQ', quizzes_path, class: "navbar-brand"
+  %button.navbar-toggler{ type:"button", 'data-toggle'=> "collapse", 'data-target' => "#navbarNav", 'aria-controls' => "navbarNav", 'aria-expanded' => "false", 'aria-label' => "Toggle navigation" }
+    %span.navbar-toggler-icon
+  .collapse.navbar-collapse#navbarNav
+    %ul.navbar-nav.ml-auto
+      %li.nav-item
+        = link_to new_quiz_path do
+          %i.fas.fa-plus
+          Quizを投稿する

@@ -10,9 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2018_07_15_001558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "answer_choices", force: :cascade do |t|
+    t.bigint "quiz_id", null: false
+    t.bigint "choice_id", null: false
+    t.integer "answer_count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["choice_id"], name: "index_answer_choices_on_choice_id"
+    t.index ["quiz_id"], name: "index_answer_choices_on_quiz_id"
+  end
+
+  create_table "choices", force: :cascade do |t|
+    t.bigint "quiz_id", null: false
+    t.string "sentence", null: false
+    t.boolean "correct", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["quiz_id"], name: "index_choices_on_quiz_id"
+  end
+
+  create_table "quizzes", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "body"
+    t.text "explanation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "ctype"
+    t.binary "image"
+  end
+
+  add_foreign_key "answer_choices", "choices"
+  add_foreign_key "answer_choices", "quizzes"
+  add_foreign_key "choices", "quizzes"
 end

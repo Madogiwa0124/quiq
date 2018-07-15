@@ -1,0 +1,28 @@
+#quiz-index{
+  .card-space{
+    padding: 10px;
+  }
+}
+
+#quiz_result{
+  .result_mark{
+    margin-bottom: 0px;
+    text-align: center;
+    .correct{
+      font-weight: bold;
+      font-size: 250%;
+    }
+    .uncorrect{
+      font-size: 250%;
+      font-weight: bold;
+    }
+  }
+  .card{
+    margin: 1em 0em;
+  }
+}
+#quiz-show{
+  .card{
+    margin: 1em 0em;
+  }
+}

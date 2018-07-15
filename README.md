@@ -1,11 +1,13 @@
-# Wizdomiz
-クイズアプリ「**Wizdomiz**」開発用のリポジトリ
+[![CircleCI](https://circleci.com/gh/Madogiwa0124/wisdomiz.svg?style=svg)](https://circleci.com/gh/Madogiwa0124/wisdomiz)
 
-## Wizdomizとは？
-Wizdomizとは、「**Wizdom(知恵)** + **Quiz(クイズ)**」の造語です。  
+# Quiq
+クイズアプリ「**Quiq**」開発用のリポジトリ
+
+## Quiqとは？
+Quiqとは、「**Wizdom(知恵)** + **Quiz(クイズ)**」の造語です。  
 Quizを通して知恵がつけられるようなアプリを目指します。
 
-## Wizdomizで出来ること(予定)
+## Quiqで出来ること(予定)
 * Quizeを作れること
 * Quizeを共有出来ること
 * Quizeに回答出来ること
