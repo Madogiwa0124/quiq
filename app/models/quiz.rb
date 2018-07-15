@@ -19,6 +19,15 @@ class Quiz < ApplicationRecord
     choices.select(&:correct).first
   end
 
+  def self.ranking
+    count_sums = AnswerChoice.answer_count_sums
+    quizzes = where(id: count_sums.map(&:quiz_id))
+    quizzes.map do |quiz|
+      count_sum = count_sums.select{ |r| r.quiz_id == quiz.id }.first
+      { quiz: quiz, count_sum: count_sum.answer_count_sum, rank: count_sum.rank }
+    end.sort { |a, b| a[:rank] <=> b[:rank] }
+  end
+
   private
 
   def valid_choices
