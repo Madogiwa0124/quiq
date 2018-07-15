@@ -6,7 +6,7 @@ class QuizImageHelper
   GRAVITY = 'center'
   TEXT_POSITION = '0,0'
   FONT = './app/assets/fonts/komorebi-gothic.ttf'
-  FONT_SIZE = '40'
+  FONT_SIZE = '65'
   INDENTION_COUNT = 11
   ROW_LIMIT = 8
 

@@ -1,6 +1,7 @@
 .container
   %h1= @quiz.title
   .card
+    = image_tag(image_quiz_path(@quiz), class: 'card-img-top', style: 'max-width: 100%')
     .card-body= @quiz.body
   %br
   .card
