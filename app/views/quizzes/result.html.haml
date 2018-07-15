@@ -1,14 +1,17 @@
 #quiz_result
   .container
     %h1= @quiz.title
-    .quiz_area
-      - if @user_choiced.correct
-        %p.currect.text-danger.center ◯ 正解
-      - else
-        %p.text-primary.center 
-          %span.uncorrect × 不正解
-          %br
-          = "正解は、#{@quiz.correct_choice.sentence}でした。"
+    .card.quiz_area
+      = image_tag(image_quiz_path(@quiz), class: 'card-img-top', style: 'max-width: 100%')
+      .card-body
+        - if @user_choiced.correct
+          %p.currect.text-danger.center ◯ 正解
+        - else
+          %p.text-primary.center 
+            %span.uncorrect × 不正解
+            %br
+            = "正解は、#{@quiz.correct_choice.sentence}でした。"
+    %br
     .card
       .card-header 解説
       .card-body= @quiz.explanation
