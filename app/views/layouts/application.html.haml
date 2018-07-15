@@ -2,10 +2,17 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Wizdomiz
+    %title QuiQ
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag "https://use.fontawesome.com/releases/v5.0.6/css/all.css"
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1"}
   %body
+    = render 'layouts/navbar'
     = yield
+    %footer.bg-primary
+      QuiQ
+      %br
+      Copyright &copy; Madogiwa_Boy All Rights Reserved

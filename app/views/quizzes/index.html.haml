@@ -1,0 +1,19 @@
+#quiz-index
+  .container
+    = image_tag('top.png', style: 'max-width: 100%')
+    .row
+      - @quizzes.each do |quiz|
+        .col-lg-4.card-space
+          .card
+            .card-header= quiz.title
+            = image_tag(image_quiz_path(quiz), class: 'card-img-top', style: 'max-width: 100%')
+            .card-body.center
+              = link_to quiz_path(quiz), class: 'card-link' do
+                %i.fas.fa-comment
+                回答する
+              = link_to edit_quiz_path(quiz), class: 'card-link' do
+                %i.fas.fa-edit
+                編集する
+              = link_to quiz_path(quiz), method: :delete, class: 'card-link' do
+                %i.fas.fa-trash-alt
+                削除する
