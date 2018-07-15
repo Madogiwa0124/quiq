@@ -26,6 +26,7 @@ class QuizzesController < ApplicationController
   def create
     @quiz = Quiz.new(quiz_params)
     @quiz.choices = reject_blank_choices
+    prepare_quiz_image
     if @quiz.save
       redirect_to quizzes_path
     else
@@ -43,6 +44,7 @@ class QuizzesController < ApplicationController
     @quiz = Quiz.find(params[:id])
     @quiz.attributes = quiz_params
     @quiz.choices = reject_blank_choices
+    prepare_quiz_image
     if @quiz.save
       redirect_to quizzes_path
     else
@@ -57,6 +59,11 @@ class QuizzesController < ApplicationController
     redirect_to quizzes_path
   end
 
+  def image
+    @quiz = Quiz.find(params[:id])
+    send_data @quiz.image, type: @quiz.ctype, disposition: 'inline'
+  end
+
   private
 
   def build_choices
@@ -65,6 +72,12 @@ class QuizzesController < ApplicationController
 
   def reject_blank_choices
     @quiz.choices.reject { |choice| choice.sentence.blank? }
+  end
+
+  def prepare_quiz_image
+    quiz_image = QuizImageHelper.build(@quiz.body)
+    @quiz.image = quiz_image.tempfile.open.read
+    @quiz.ctype = quiz_image.mime_type
   end
 
   def quiz_params
