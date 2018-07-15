@@ -1,12 +1,12 @@
 class QuizImageHelper
-  require "mini_magick"
-  require "securerandom"
+  require 'mini_magick'
+  require 'securerandom'
 
-  BASE_IMAGE_PATH = './app/assets/images/bg_image.png'
-  GRAVITY = 'center'
-  TEXT_POSITION = '0,0'
-  FONT = './app/assets/fonts/komorebi-gothic.ttf'
-  FONT_SIZE = '65'
+  BASE_IMAGE_PATH = './app/assets/images/bg_image.png'.freeze
+  GRAVITY = 'center'.freeze
+  TEXT_POSITION = '0,0'.freeze
+  FONT = './app/assets/fonts/komorebi-gothic.ttf'.freeze
+  FONT_SIZE = 65
   INDENTION_COUNT = 11
   ROW_LIMIT = 8
 
