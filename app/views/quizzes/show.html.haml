@@ -1,12 +1,12 @@
-.container
-  %h1= @quiz.title
-  .card
-    = image_tag(image_quiz_path(@quiz), class: 'card-img-top', style: 'max-width: 100%')
-    .card-body= @quiz.body
-  %br
-  .card
-    .card-header 選択肢
-    %ul.list-group.list-group-flush
-      - @quiz.choices.each do |choice|
-        %li.list-group-item
-          = link_to choice.sentence, answer_choices_path(answer_choices: { quiz_id: @quiz.id, choice_id: choice.id }), method: :post
+#quiz-show
+  .container
+    .card
+      .card-header= @quiz.title
+      = image_tag(image_quiz_path(@quiz), class: 'card-img-top', style: 'max-width: 100%')
+      .card-body= @quiz.body
+    .card
+      .card-header 選択肢
+      %ul.list-group.list-group-flush
+        - @quiz.choices.each do |choice|
+          %li.list-group-item
+            = link_to choice.sentence, answer_choices_path(answer_choices: { quiz_id: @quiz.id, choice_id: choice.id }), method: :post
