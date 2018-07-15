@@ -61,7 +61,7 @@ class QuizzesController < ApplicationController
 
   def image
     @quiz = Quiz.find(params[:id])
-    send_data @quiz.image, :type => @quiz.ctype, :disposition => 'inline'
+    send_data @quiz.image, type: @quiz.ctype, disposition: 'inline'
   end
 
   private
