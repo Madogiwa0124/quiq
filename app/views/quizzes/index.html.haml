@@ -5,7 +5,7 @@
       .col-lg-4.card-space
         .card
           .card-header= quiz.title
-          = image_tag('sample_image.png', class: 'card-img-top', style: 'max-width: 100%')
+          = image_tag(image_quiz_path(quiz), class: 'card-img-top', style: 'max-width: 100%')
           .card-body.center
             = link_to quiz_path(quiz), class: 'card-link' do
               %i.fas.fa-comment
