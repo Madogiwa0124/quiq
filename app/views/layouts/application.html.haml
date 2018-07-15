@@ -9,6 +9,13 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = stylesheet_link_tag "https://use.fontawesome.com/releases/v5.0.6/css/all.css"
     %meta{ name: "viewport", content: "width=device-width, initial-scale=1"}
+    - twitter_card = twitter_card_info(@quiz ? @quiz : nil)
+    %meta{ name: "twitter:card", content: twitter_card[:card] }
+    %meta{ name: "twitter:site", content: twitter_card[:site] }
+    %meta{ property: "og:url", content: twitter_card[:url] }
+    %meta{ property: "og:title", content: twitter_card[:title] }
+    %meta{ property: "og:description", content: twitter_card[:description] }
+    %meta{ property: "og:image", content: twitter_card[:image] }
   %body
     = render 'layouts/navbar'
     = yield
