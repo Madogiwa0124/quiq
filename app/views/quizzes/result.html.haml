@@ -1,25 +1,23 @@
 #quiz_result
   .container
-    %h1= @quiz.title
     .card.quiz_area
+      .card-header= @quiz.title
       = image_tag(image_quiz_path(@quiz), class: 'card-img-top', style: 'max-width: 100%')
       .card-body
         - if @user_choiced.correct
-          %p.currect.text-danger.center ◯ 正解
+          %p.text-danger.result_mark
+            %span.correct ◯ 正解
         - else
-          %p.text-primary.center 
+          %p.text-primary.result_mark 
             %span.uncorrect × 不正解
             %br
             = "正解は、#{@quiz.correct_choice.sentence}でした。"
-    %br
     .card
       .card-header 解説
       .card-body= @quiz.explanation
-    %br
     .card
       .card-header 本文
       .card-body= @quiz.body
-    %br
     .card
       .card-header 選択肢
       %ul.list-group.list-group-flush
@@ -30,4 +28,3 @@
             - else
               %span= choice.sentence
             %span.badge.badge-primary.float-right= "#{choice.answers_count}人が回答"
-
