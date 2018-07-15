@@ -28,7 +28,7 @@ class QuizzesController < ApplicationController
     @quiz.choices = reject_blank_choices
     prepare_quiz_image
     if @quiz.save
-      redirect_to quizzes_path
+      redirect_to quiz_path(@quiz)
     else
       build_choices
       render :new
@@ -46,7 +46,7 @@ class QuizzesController < ApplicationController
     @quiz.choices = reject_blank_choices
     prepare_quiz_image
     if @quiz.save
-      redirect_to quizzes_path
+      redirect_to quiz_path(@quiz)
     else
       build_choices
       render :edit
