@@ -5,14 +5,14 @@ default: &default
 
 development:
   <<: *default
-  database: wizdomiz_development
+  database: quiq_development
 
 test:
   <<: *default
-  database: wizdomiz_test
+  database: quiq_test
 
 production:
   <<: *default
-  database: wizdomiz_production
-  username: wizdomiz
-  password: <%= ENV['WIZDOMIZ_DATABASE_PASSWORD'] %>
+  database: quiq_production
+  username: quiq
+  password: <%= ENV['QUIQ_DATABASE_PASSWORD'] %>
