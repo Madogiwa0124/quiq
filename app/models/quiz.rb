@@ -30,7 +30,7 @@ class Quiz < ApplicationRecord
   end
 
   def self.search(text)
-    where("title LIKE :text OR body LIKE :text", text: "%#{text}%") 
+    where('title LIKE :text OR body LIKE :text', text: "%#{text}%")
   end
 
   private

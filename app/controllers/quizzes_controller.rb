@@ -3,11 +3,11 @@ class QuizzesController < ApplicationController
   RANK_LIMIT = 10
 
   def index
-    if params[:search_text]
-      @quizzes = Quiz.includes(:choices).search(params[:search_text])
-    else
-      @quizzes = Quiz.includes(:choices)
-    end
+    @quizzes = if params[:search_text]
+                 Quiz.includes(:choices).search(params[:search_text])
+               else
+                 Quiz.includes(:choices)
+               end
   end
 
   def show
