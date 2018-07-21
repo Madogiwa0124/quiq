@@ -1,0 +1,19 @@
+#quiz-ranking
+  .container
+    = image_tag('top.png', style: 'max-width: 100%')
+    %h1.center
+      %i.fas.fa-crown
+      解答数ランキング
+    .row
+      %ul.list-group
+        - @quiz_ranks.each do |quiz_rank|
+          %li.list-group-item
+            %h5.text-primary
+              %i.fas{ class: quiz_rank[:rank] < 4 ? 'fa-medal' : nil }
+              %spen= "#{quiz_rank[:rank]}位"
+              = quiz_rank[:quiz].title
+            = quiz_rank[:quiz].body
+            %p.right
+              = link_to quiz_path(quiz_rank[:quiz]), class: 'card-link' do
+                %i.fas.fa-comment
+                回答する

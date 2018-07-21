@@ -4,6 +4,9 @@ Rails.application.routes.draw do
       get :result
       get :image
     end
+    collection do
+      get :ranking
+    end
   end
   resources :answer_choices
 end
