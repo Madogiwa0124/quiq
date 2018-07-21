@@ -22,10 +22,11 @@ class Quiz < ApplicationRecord
   def self.ranking(num)
     count_sums = AnswerChoice.answer_count_sums.limit(num)
     quizzes = where(id: count_sums.map(&:quiz_id))
-    quizzes.map do |quiz|
-      count_sum = count_sums.select{ |r| r.quiz_id == quiz.id }.first
+    quizzes = quizzes.map do |quiz|
+      count_sum = count_sums.select { |r| r.quiz_id == quiz.id }.first
       { quiz: quiz, count_sum: count_sum.answer_count_sum, rank: count_sum.rank }
-    end.sort { |a, b| a[:rank] <=> b[:rank] }
+    end
+    quizzes.sort_by { |quiz| quiz[:rank] }
   end
 
   private
