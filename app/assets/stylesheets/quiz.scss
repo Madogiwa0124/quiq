@@ -21,8 +21,27 @@
     margin: 1em 0em;
   }
 }
+
 #quiz-show{
   .card{
     margin: 1em 0em;
+  }
+}
+
+#quiz-ranking{
+  .fa-medal{
+    color: orange;
+  }
+  .fa-crown{
+    color: orange;
+  }
+  ul{
+    width: 100%;
+  }
+  p{
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+    padding-top: 0.75em;
+    margin-bottom: 0em;
+    margin-top: 0.75em;
   }
 }
