@@ -1,5 +1,6 @@
 class QuizzesController < ApplicationController
   MAX_CHOICES_COUNT = 4
+  RANK_LIMIT = 10
 
   def index
     @quizzes = Quiz.includes(:choices)
@@ -62,6 +63,10 @@ class QuizzesController < ApplicationController
   def image
     @quiz = Quiz.find(params[:id])
     send_data @quiz.image, type: @quiz.ctype, disposition: 'inline'
+  end
+
+  def ranking
+    @quiz_ranks = Quiz.ranking(RANK_LIMIT)
   end
 
   private
