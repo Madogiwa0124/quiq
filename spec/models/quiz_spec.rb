@@ -46,7 +46,7 @@ RSpec.describe Quiz, type: :model do
       expect(result[1][:rank]).to eq 2
     end
   end
-  
+
   describe '#correct_choice' do
     let(:quiz) { FactoryBot.build(:quiz) }
     let(:correct_choice) { FactoryBot.build(:choice, quiz: quiz, correct: true) }
