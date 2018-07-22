@@ -1,0 +1,4 @@
+= form_with url: quizzes_path, method: :get, local: true, class: 'form-inline input-group' do |f|
+  = f.text_field :search_text, class: 'form-control', value: params[:search_text]
+  .input-group-append
+    = f.button '検索', name: nil, type: :submit, class: 'btn btn-info'
