@@ -5,7 +5,6 @@ class Choice < ApplicationRecord
   validates :sentence, presence: true
 
   def answers_count
-    answers_count = answer_choice&.answer_count
-    answers_count ? answers_count : 0
+    answer_choice&.answer_count || 0
   end
 end
