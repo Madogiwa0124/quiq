@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => 'quizzes#index'
   resources :quizzes do
     member do
       get :result
