@@ -53,7 +53,7 @@ RSpec.describe Quiz, type: :model do
     let!(:quiz_3) { FactoryBot.create(:quiz, :with_choices, title: 'aaab', body: 'ddd') }
     let!(:quiz_4) { FactoryBot.create(:quiz, :with_choices, title: 'ddd',  body: 'aaab') }
 
-    before { FactoryBot.create(:quiz, :with_choices, title: 'ccc',  body: 'ddd') }
+    before { FactoryBot.create(:quiz, :with_choices, title: 'ccc', body: 'ddd') }
 
     it '検索文字列とタイトルと本文が部分一致するものが取得されること' do
       expect(described_class.search('aaa')).to match_array [quiz_1, quiz_2, quiz_3, quiz_4]
