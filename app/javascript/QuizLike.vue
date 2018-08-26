@@ -7,6 +7,10 @@
 </template>
 
 <script>
+import axios from 'axios';
+import { csrfToken } from 'rails-ujs'
+axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
+
 export default {
   data: function () {
     return {
@@ -26,6 +30,9 @@ export default {
   methods: {
     create: function (value) {
       this.like_count += value
+      axios.post(`/quizzes/${this.quiz_id}/like`, {
+          value: this.value
+      });
     }
   }
 }
