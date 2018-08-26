@@ -13,7 +13,8 @@
             %br
             = "正解は、#{@quiz.correct_choice.sentence}でした。"
         #like_area
-          %quiz-like{ ':init_like_count': @quiz.like&.like_count, ':quiz_id': @quiz.id }
+          - like_count = @quiz.like.present? ? @quiz.like.like_count : 0
+          %quiz-like{ ':init_like_count': like_count, ':quiz_id': @quiz.id }
     .card
       .card-header 解説
       .card-body= @quiz.explanation
