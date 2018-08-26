@@ -3,6 +3,8 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "https://github.com/rails/webpacker.git",
+    "axios": "^0.18.0",
+    "rails-ujs": "^5.2.1",
     "vue": "^2.5.17",
     "vue-loader": "^15.4.0",
     "vue-template-compiler": "^2.5.17"
