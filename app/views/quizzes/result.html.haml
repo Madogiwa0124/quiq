@@ -12,6 +12,8 @@
             %span.uncorrect × 不正解
             %br
             = "正解は、#{@quiz.correct_choice.sentence}でした。"
+        #like_area
+          %quiz-like{ ':init_like_count': 0, ':quiz_id': @quiz.id }
     .card
       .card-header 解説
       .card-body= @quiz.explanation
@@ -28,3 +30,4 @@
             - else
               %span= choice.sentence
             %span.badge.badge-primary.float-right= "#{choice.answers_count}人が回答"
+= javascript_pack_tag 'quizzes'
