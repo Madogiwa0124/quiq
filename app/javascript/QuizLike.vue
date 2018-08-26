@@ -31,7 +31,7 @@ export default {
     create: function (value) {
       this.like_count += value
       axios.post(`/quizzes/${this.quiz_id}/like`, {
-          value: this.value
+        like: { value: this.like_count }
       });
     }
   }
