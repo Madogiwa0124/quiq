@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_15_001558) do
+ActiveRecord::Schema.define(version: 2018_08_26_014013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,14 @@ ActiveRecord::Schema.define(version: 2018_07_15_001558) do
     t.index ["quiz_id"], name: "index_choices_on_quiz_id"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.bigint "quiz_id", null: false
+    t.integer "like_count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["quiz_id"], name: "index_likes_on_quiz_id"
+  end
+
   create_table "quizzes", force: :cascade do |t|
     t.string "title", null: false
     t.text "body"
@@ -47,4 +55,5 @@ ActiveRecord::Schema.define(version: 2018_07_15_001558) do
   add_foreign_key "answer_choices", "choices"
   add_foreign_key "answer_choices", "quizzes"
   add_foreign_key "choices", "quizzes"
+  add_foreign_key "likes", "quizzes"
 end
