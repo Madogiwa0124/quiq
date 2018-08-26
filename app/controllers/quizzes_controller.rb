@@ -4,9 +4,9 @@ class QuizzesController < ApplicationController
 
   def index
     @quizzes = if params[:search_text]
-                 Quiz.includes(:choices).search(params[:search_text])
+                 Quiz.includes(:choices, :like).search(params[:search_text])
                else
-                 Quiz.includes(:choices)
+                 Quiz.includes(:choices, :like)
                end
   end
 
