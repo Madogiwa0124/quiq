@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     member do
       get :result
       get :image
+      post :like, to: 'like#create'
     end
     collection do
       get :ranking
