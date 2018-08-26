@@ -10,7 +10,7 @@
                 = quiz.title
               %div.right
                 %i.fas.fa-thumbs-up.text-success
-                %span.text-secondary= quiz.like.like_count
+                %span.text-secondary= quiz.like&.like_count
             = image_tag(image_quiz_path(quiz), class: 'card-img-top', style: 'max-width: 100%')
             .card-body.center
               = link_to quiz_path(quiz), class: 'card-link' do
