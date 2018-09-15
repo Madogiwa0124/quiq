@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/Madogiwa0124/wisdomiz.svg?style=svg)](https://circleci.com/gh/Madogiwa0124/wisdomiz)
+[![CircleCI](https://circleci.com/gh/Madogiwa0124/quiq.svg?style=svg)](https://circleci.com/gh/Madogiwa0124/quiq)
 
 # Quiq
 クイズアプリ「**Quiq**」開発用のリポジトリ
