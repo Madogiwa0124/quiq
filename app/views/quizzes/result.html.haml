@@ -29,7 +29,7 @@
               %span= choice.sentence
             %span.badge.badge-primary.float-right= "#{choice.answers_count}人が回答"
     #like_area.center
-      %p このQuizの評価してみませんか？🙌
+      %p このQuizの評価してみませんか？🙌hoge
       - like_count = @quiz.like.present? ? @quiz.like.like_count : 0
       %quiz-like{ ':init_like_count': like_count, ':quiz_id': @quiz.id }
 = javascript_pack_tag 'quizzes'
