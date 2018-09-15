@@ -1,8 +1,12 @@
 <template>
-  <div style="text-align: right">
-    <button class="btn btn-success btn-sm" @click="create(1)"><i class="fas fa-thumbs-up"></i></button>
-    <button class="btn btn-danger btn-sm" @click="create(-1)"><i class="fas fa-thumbs-down"></i></button>
-    <span class="text-secondary">評価 : {{ like_count }} pt</span>
+  <div>
+    <button class="btn btn-success btn-sm" @click="create(1)">
+      <i class="fas fa-thumbs-up"></i>
+    </button>
+    <button class="btn btn-danger btn-sm" @click="create(-1)">
+      <i class="fas fa-thumbs-down"></i>
+    </button>
+    <span class="text-secondary">{{ like_count }} ｲｲﾈ</span>
   </div>
 </template>
 

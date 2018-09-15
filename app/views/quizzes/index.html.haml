@@ -7,9 +7,9 @@
           .card
             .card-header
               %div.quiz-title
-                = quiz.title
+                = quiz.title.truncate(13, omission: '…')
               %div.right
-                %i.fas.fa-thumbs-up.text-success
+                %i.fas.fa-thumbs-up.text-info
                 %span.text-secondary
                   = quiz.like.present? ? quiz.like.like_count : 0
             = image_tag(image_quiz_path(quiz), class: 'card-img-top', style: 'max-width: 100%')
