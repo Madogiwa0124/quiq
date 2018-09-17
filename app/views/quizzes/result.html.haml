@@ -12,6 +12,8 @@
             %span.uncorrect × 不正解
             %br
             = "正解は、#{@quiz.correct_choice.sentence}でした。"
+        #share_area.center
+          %tweet-button{ ':quiz_id': @quiz.id }
     .card
       .card-header 解説
       .card-body= @quiz.explanation
