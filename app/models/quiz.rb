@@ -8,14 +8,6 @@ class Quiz < ApplicationRecord
   validate :require_multi_choice
   validate :require_only_correct_choice, unless: -> { valid_choices.length < 2 }
 
-  def require_multi_choice
-    errors.add(:choices, '選択肢は、2個以上指定してください') if valid_choices.length < 2
-  end
-
-  def require_only_correct_choice
-    errors.add(:choices, '正解の選択肢は、1つ指定してください') if correct_choices.length != 1
-  end
-
   def correct_choice
     choices.select(&:correct).first
   end
@@ -35,6 +27,14 @@ class Quiz < ApplicationRecord
   end
 
   private
+
+  def require_multi_choice
+    errors.add(:choices, '選択肢は、2個以上指定してください') if valid_choices.length < 2
+  end
+
+  def require_only_correct_choice
+    errors.add(:choices, '正解の選択肢は、1つ指定してください') if correct_choices.length != 1
+  end
 
   def valid_choices
     choices.select(&:valid?)
