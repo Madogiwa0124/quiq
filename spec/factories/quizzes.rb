@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :quiz do
-    title 'タイトル'
-    body '本文'
-    explanation '解説'
+    title { 'タイトル' }
+    body { '本文' }
+    explanation { '解説' }
 
     trait :with_choices do
       before(:create) do |quiz|
