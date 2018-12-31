@@ -1,11 +1,11 @@
-[![CircleCI](https://circleci.com/gh/Madogiwa0124/wisdomiz.svg?style=svg)](https://circleci.com/gh/Madogiwa0124/wisdomiz)
+[![CircleCI](https://circleci.com/gh/Madogiwa0124/quiq.svg?style=svg)](https://circleci.com/gh/Madogiwa0124/quiq)
 
 # Quiq
 クイズアプリ「**Quiq**」開発用のリポジトリ
 
 ## Quiqとは？
-Quiqとは、「**Wizdom(知恵)** + **Quiz(クイズ)**」の造語です。  
-Quizを通して知恵がつけられるようなアプリを目指します。
+Quiqとは、「**quiq(早く)** + **Quiz(クイズ)**」の造語です。  
+Quizを手軽に共有出来るようなサービスを目指します。
 
 ## Quiqで出来ること(予定)
 * Quizeを作れること
